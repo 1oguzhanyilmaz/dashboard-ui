@@ -1,0 +1,434 @@
+// A map of breakpoints.
+$breakpoints: (
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+);
+// @include respond-above(sm) {}
+@mixin mq($breakpoint) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        // Write the media query.
+        @media (min-width: $breakpoint-value) {
+          @content;
+        }
+        // If the breakpoint doesn't exist in the map.
+    }@else {
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin not-last-child($selector) {
+    & #{$selector}:not(:last-child) {
+        @content;
+    }
+}
+
+// Define Variable
+$box-color: #fff1d6;
+$box-color-2: #d3e6ff;
+$box-color-3: #ffd9d9;
+$box-color-4: #daffe5;
+
+$main-color: #353536;
+$secondary-color: #8e92a4;
+$bg-color: #f5f8ff;
+$border-color: #e3e7f7;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.in-progress { color: rgb(49, 5, 206); }
+.in-review { color: rgb(128, 6, 16); }
+.completed { color: rgb(4, 117, 14); }
+.waiting { color: rgb(105, 108, 109); }
+
+.yellow{ background-color: $box-color; }
+.red{ background-color: $box-color-2; }
+.green{ background-color: $box-color-3; }
+.blue{ background-color: $box-color-4; }
+
+.dashboard{
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include mq(md) {
+        flex-direction: row;
+    }
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 900px;
+    border-radius: 4px;
+    overflow-y: auto;
+    @include mq(md) {
+        overflow: hidden;
+    }
+    position: relative;
+}
+
+.hamburger-menu{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    @include mq(lg) {
+        display: none;
+    }
+
+    div{
+        padding: 1px 0;
+        margin: 2px 0;
+        width: 1.5rem;
+        height: 2px;
+        background-color: $main-color;
+    }
+
+    &:hover{
+        opacity: .5;
+    }
+}
+
+.left-bar{
+    position: absolute;
+    z-index: 9999;
+    width: 60%;
+    height: 100vh;
+    border-right: 1px solid $border-color;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: $bg-color;
+    left: -100%;
+    top: 0;
+    transition: all .5s;
+    @include mq(lg) {
+        position: initial;
+        height: 100%;
+        width: 25%;
+    }
+
+    .top{
+        .buttons{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px;
+            &-1{
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+                background-color: red;
+                box-shadow: 14px 0 0 0 orange, 28px 0 0 0 green;
+            }
+            &-2{
+                //border: 1px solid black;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                opacity: .5;
+                transition: all .5s;
+                @include mq(lg) {
+                    display: none;
+                }
+
+                &:hover{
+                    opacity: .9;
+                }
+            }
+        }
+    }
+    &-menu{
+        padding: 3rem;
+        font-weight: 500;
+        font-size: 14px;
+
+        .item{
+            color: $main-color;
+            margin-bottom: .7rem;
+            svg{
+                width: 14px;
+                height: 14px;
+                color: currentcolor;
+                margin-right: 10px;
+            }
+
+            &:hover{
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+
+        .menu-list{
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .category-list{
+            list-style: none;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+
+            &-item{
+                opacity: .5;
+            }
+        }
+    }
+}
+
+.content {
+    padding-top: 3rem;
+    max-width: 100%;
+    border-radius: 0.7rem;
+    text-align: left;
+    font-weight: normal;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    @include mq(md) {
+        height: 100%;
+    }
+    @include mq(lg) {
+        flex: 1;
+    }
+
+    &-header {
+        margin-top: 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $main-color;
+    }
+    &-nav {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        @include mq(sm) {
+            font-size: 16px;
+        }
+
+        &-label {
+            padding: 1rem;
+            color: rgba(0, 0, 0, .7);
+            border-bottom: 1px solid rgba(151, 148, 148, .4);
+            cursor: pointer;
+
+            &.active, &:hover {
+                color: rgb(69, 131, 84);
+                border-bottom: 2px solid #009e90;
+            }
+
+            label {
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            input {
+                display: none;
+            }
+        }
+    }
+    &-tasks {
+        border-top: 1px solid rgba(151, 148, 148, .4);
+        padding: 1.7rem 0;
+        height: auto;
+        font-size: .9rem;
+        @include mq(md) {
+            height: 65%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                input{
+                    display: none;
+                }
+                label{
+                    cursor: pointer;
+                    //margin-left: 5px;
+                    position: relative;
+
+                    &:before{
+                        content: '';
+                        border: 2px solid lightgray;
+                        background-color: #fff;
+                        padding: 5px;
+                        margin-right: 5px;
+                        display: inline-block;
+                        cursor: pointer;
+                    }
+                }
+                input[type="checkbox"]:checked {
+                    + label {
+                        &:after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: 1px;
+                            left: 4px;
+                            width: 3px;
+                            height: 8px;
+                            border: solid #458354;
+                            border-width: 0px 2px 2px 0px;
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                margin-left: 3px;
+                margin-right: -3px;
+            }
+
+            &-tag {
+                display: inline-block;
+                border-radius: 3px;
+                padding: .2rem .3rem;
+                font-size: .7rem;
+                font-weight: normal;
+                background-color: #f7f8fc;
+            }
+        }
+
+        .task-header {
+            border-bottom: 1px solid rgba(151, 148, 148, .4);
+            color: #333;
+            padding-bottom: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+    }
+}
+
+.right-bar{
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    text-align: left;
+    @include mq(md) {
+        height: 100%;
+    }
+    @include mq(lg) {
+        width: 30%;
+    }
+
+    &-user{
+        display: none;
+        @include mq(md) {
+            display: block;
+            text-align: right;
+            padding: 25px 15px;
+            svg{
+                cursor: pointer;
+                &:hover{
+                    opacity: .7;
+                }
+            }
+        }
+    }
+    &-header{
+        color: $main-color;
+        font-size: 1.3rem;
+        font-weight: normal;
+        margin-left: 1rem;
+    }
+    &-content{
+        padding: 10px 15px;
+        margin: 0;
+        @include mq(md) {
+            height: 90%;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .box{
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px 0px #ebebeb;
+            &:hover{
+                transform: scale(1.02);
+            }
+            &-header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &-left{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    .task-time{
+                        opacity: .5;
+                        font-size: 10px;
+                        margin-bottom: .5rem;
+                    }
+                    .task-name{
+                        opacity: .8;
+                        font-size: 12px;
+                    }
+                }
+                &-right{
+                    opacity: .8;
+                    font-size: 10px;
+                }
+            }
+            &-members{
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: center;
+                &-img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
