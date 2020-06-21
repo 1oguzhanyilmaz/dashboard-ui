@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="h-screen w-full py-8 px-16 bg-gradient-r-blue1-blue2">
+
+    <div class="relative bg-white w-full h-auto md:h-full rounded flex flex-col md:flex-row">
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger absolute left-0 top-0 p-3 space-y-1 cursor-pointer lg:hidden hover:opacity-50">
+            <div class="h-.5 w-8 bg-gray-600"></div>
+            <div class="h-.5 w-8 bg-gray-600"></div>
+            <div class="h-.5 w-8 bg-gray-600"></div>
+        </div>
+
+        <!-- Left Side -->
+        <div class="left-bar hidden z-50 absolute left-0 top-0 lg:relative lg:block border h-full w-full  md:w-1/3 bg-blue-100">
+            <div class="top">
+                <div class="flex items-center justify-between p-4">
+                    <div class="flex items-center">
+                        <div class="bg-red-500 rounded-full h-3 w-3 mr-1"></div>
+                        <div class="bg-yellow-500 rounded-full h-3 w-3 mr-1"></div>
+                        <div class="bg-green-500 rounded-full h-3 w-3"></div>
+                    </div>
+                    <div class="menu-close p-1 cursor-pointer hover:opacity-50 lg:hidden">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" ><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom p-12 font-normal text-md">
+                <div class="menu space-y-2">
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-inbox" viewBox="0 0 24 24">
+                            <path d="M22 12h-6l-2 3h-4l-2-3H2"></path>
+                            <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                        </svg>
+                        <span>Inbox</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <span>Today</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-calendar" viewBox="0 0 24 24">
+                            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                            <path d="M16 2v4M8 2v4m-5 4h18"></path>
+                        </svg>
+                        <span>Upcoming</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-hash">
+                            <line x1="4" y1="9" x2="20" y2="9"></line>
+                            <line x1="4" y1="15" x2="20" y2="15"></line>
+                            <line x1="10" y1="3" x2="8" y2="21"></line>
+                            <line x1="16" y1="3" x2="14" y2="21"></line>
+                        </svg>
+                        <span>Important</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-trash" viewBox="0 0 24 24">
+                            <path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        <span>Trash</span>
+                    </a>
+                </div>
+                <div class="categories my-12 space-y-2 opacity-50">
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-sun" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                        <span>Vacation</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                        <span>Festival</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-2 hover:underline">
+                        <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <span>Concerts</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="h-auto md:h-full w-full md:w-3/5 pl-4 pr-4 pt-12">
+            <div class="mt-6 text-xl font-normal">
+                Today Tasks
+            </div>
+            <div class="py-6 border-b border-gray-400">
+                <ul class="flex items-center justify-between flex-wrap text-xs">
+                    <li class="cursor-pointer p-4 border-b border-gray-400  hover:border-b nav-active">All</li>
+                    <li class="cursor-pointer p-4 border-b border-gray-400 hover:border-b hover:border-green-600">Important</li>
+                    <li class="cursor-pointer p-4 border-b border-gray-400 hover:border-b hover:border-green-600">Notes</li>
+                    <li class="cursor-pointer p-4 border-b border-gray-400 hover:border-b hover:border-green-600">Links</li>
+                </ul>
+            </div>
+            <div class="tasks h-auto md:h-3/5 md:overflow-y-scroll">
+                <div class="pt-8 text-sm">
+                    <div class="mb-4 flex items-center justify-between transform hover:scale-95">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="task-1" id="task-1" class="cursor-pointer">
+                            <label for="task-1" class="pl-2 cursor-pointer">Dashboard Design Completed.</label>
+                        </div>
+                        <div class="tag in-progress">
+                            In Progress
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between transform hover:scale-95">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="task-2" id="task-2" class="cursor-pointer">
+                            <label for="task-2" class="pl-2 cursor-pointer">User Created.</label>
+                        </div>
+                        <div class="tag in-review">
+                            In Review
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between transform hover:scale-95">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="task-3" id="task-3" class="cursor-pointer">
+                            <label for="task-3" class="pl-2 cursor-pointer">Created Dashboard.</label>
+                        </div>
+                        <div class="tag completed">
+                            Completed
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between transform hover:scale-95">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="task-4" id="task-4" class="cursor-pointer">
+                            <label for="task-4" class="pl-2 cursor-pointer">Dashboard Design Completed.</label>
+                        </div>
+                        <div class="tag in-progress">
+                            In Progress
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between transform hover:scale-95">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="task-5" id="task-5" class="cursor-pointer">
+                            <label for="task-5" class="pl-2 cursor-pointer">User Created.</label>
+                        </div>
+                        <div class="tag in-review">
+                            In Review
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between transform hover:scale-95">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="task-6" id="task-6" class="cursor-pointer">
+                            <label for="task-6" class="pl-2 cursor-pointer">Completed.</label>
+                        </div>
+                        <div class="tag completed">
+                            Completed
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4 mb-4 text-xl font-normal border-b border-gray-400">
+                    Upcoming Tasks
+                </div>
+                <div class="text-sm">
+                    <div class="mb-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="up-task-1" id="up-task-1" class="cursor-pointer">
+                            <label for="up-task-1" class="pl-2 cursor-pointer">Lorem ipsum dolor sit amet.</label>
+                        </div>
+                        <div class="tag waiting">
+                            Waiting
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="up-task-2" id="up-task-2" class="cursor-pointer">
+                            <label for="up-task-2" class="pl-2 cursor-pointer">Lorem ipsum dolor.</label>
+                        </div>
+                        <div class="tag waiting">
+                            Waiting
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="up-task-3" id="up-task-3" class="cursor-pointer">
+                            <label for="up-task-3" class="pl-2 cursor-pointer">Lorem ipsum dolor sit.</label>
+                        </div>
+                        <div class="tag waiting">
+                            Waiting
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="h-auto md:h-full w-full md:w-2/5 pl-4 pr-4">
+            <div class="hidden md:flex py-6 px-2 justify-end cursor-pointer">
+                <svg class="" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><path d="M20 8v6M23 11h-6"></path></svg>
+            </div>
+            <div class="ml-4 text-xl font-normal">
+                Schedule
+            </div>
+            <div class="p-2 md:mt-4 text-xs h-auto md:h-3/4 md:overflow-y-scroll">
+                <div class="box box-yellow hover:scale-105">
+                    <div class="header flex items-center justify-between">
+                        <div class="left">
+                            <div class="time opacity-50 text-2xs pb-1">08.00 - 09.00 AM</div>
+                            <div class="name">Product Review</div>
+                        </div>
+                        <div class="right">
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="members mt-2 flex flex-wrap">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                </div>
+                <div class="box box-green hover:scale-105">
+                    <div class="header flex items-center justify-between">
+                        <div class="left">
+                            <div class="time opacity-50 text-2xs pb-1">08.00 - 09.00 AM</div>
+                            <div class="name">Product Review</div>
+                        </div>
+                        <div class="right">
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="members mt-2 flex flex-wrap">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                </div>
+                <div class="box box-red hover:scale-105">
+                    <div class="header flex items-center justify-between">
+                        <div class="left">
+                            <div class="time opacity-50 text-2xs pb-1">08.00 - 09.00 AM</div>
+                            <div class="name">Product Review</div>
+                        </div>
+                        <div class="right">
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="members mt-2 flex flex-wrap">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                </div>
+                <div class="box box-blue hover:scale-105">
+                    <div class="header flex items-center justify-between">
+                        <div class="left">
+                            <div class="time opacity-50 text-2xs pb-1">08.00 - 09.00 AM</div>
+                            <div class="name">Product Review</div>
+                        </div>
+                        <div class="right">
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="members mt-2 flex flex-wrap">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                </div>
+                <div class="box box-yellow hover:scale-105">
+                    <div class="header flex items-center justify-between">
+                        <div class="left">
+                            <div class="time opacity-50 text-2xs pb-1">08.00 - 09.00 AM</div>
+                            <div class="name">Product Review</div>
+                        </div>
+                        <div class="right">
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="members mt-2 flex flex-wrap">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                </div>
+                <div class="box box-green hover:scale-105">
+                    <div class="header flex items-center justify-between">
+                        <div class="left">
+                            <div class="time opacity-50 text-2xs pb-1">08.00 - 09.00 AM</div>
+                            <div class="name">Product Review</div>
+                        </div>
+                        <div class="right">
+                            <a href="#">...</a>
+                        </div>
+                    </div>
+                    <div class="members mt-2 flex flex-wrap">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                        <img class="h-8 w-8 rounded-full mr-2" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

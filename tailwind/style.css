@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-active{
+    @apply border-green-600;
+    @apply text-green-600;
+}
+.tag{
+    @apply px-2 rounded text-xs;
+}
+.in-progress{
+    @apply text-blue-900 bg-blue-100;
+}
+.in-review{
+    @apply text-red-900 bg-red-100;
+}
+.completed{
+    @apply text-green-900 bg-green-100;
+}
+.waiting{
+    @apply text-gray-900 bg-gray-100;
+}
+.box{
+    @apply rounded-lg my-4 p-4 cursor-pointer transform;
+}
+.box-yellow{
+    @apply bg-yellow-200;
+}
+.box-green{
+    @apply bg-green-200;
+}
+.box-red{
+    @apply bg-red-200;
+}
+.box-blue{
+    @apply bg-blue-200;
+}
