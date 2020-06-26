@@ -1,0 +1,250 @@
+// A map of breakpoints.
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+// @include respond-above(sm) {}
+@mixin mq($breakpoint) {
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        // Write the media query.
+        @media (min-width: $breakpoint-value) {
+          @content;
+        }
+        // If the breakpoint doesn't exist in the map.
+    }@else {
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+$box-red    : #ffd9d9;
+$box-green  : #daffe5;
+$box-blue   : #d3e6ff;
+$box-yellow : #fff1d6;
+
+$border-color: rgba(151, 148, 148, 0.4);
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    @include mq(md) {
+        height: 100vh;
+    }
+}
+
+.dashboard{
+    @include mq(md) {
+        height: 100%!important;
+    }
+}
+
+.box-red{ background-color: $box-red; }
+.box-green{ background-color: $box-green; }
+.box-blue{ background-color: $box-blue; }
+.box-yellow{ background-color: $box-yellow; }
+
+.in-progress{ color: #3105ce; }
+.in-review{ color: #800610; }
+.completed{ color: #04750e; }
+.waiting{ color: #696c6d; }
+
+.rounded-08{ border-radius: .8rem; }
+.rounded-06{ border-radius: .6rem; }
+
+.py-6{
+    padding-top: 1.7rem!important;
+    padding-bottom: 1.7rem!important;
+}
+.py-8{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+// #######################################
+// ### Hamburger menu icon ###
+.hamburger-menu{
+    top: 10px;
+    left: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: .7;
+    z-index: 998;
+    background-color: #eee;
+    @include mq(lg) {
+        display: none;
+    }
+    &:hover{
+        opacity: 1;
+    }
+    div{
+        height: 3px;
+        width: 23px;
+    }
+}
+
+// ############################
+// ### Left Side ###
+.left-side{
+    top: 0;
+    left: -100%;
+    z-index: 999;
+    width: 50%;
+    background-color: #f5f8ff;
+    transition: all .7s ease;
+    border-right: 1px solid #e3e7f7;
+    @include mq(lg) {
+        position: initial!important;
+    }
+    .top{
+        .buttons{
+            span{
+                display: inline-block;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                &.red{
+                    background-color: red;
+                }
+                &.green{
+                    background-color: green;
+                }
+                &.blue{
+                    background-color: blue;
+                }
+            }
+        }
+        .close-button{
+            margin-right: 10px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            border-radius: 50%;
+            opacity: .7;
+            @include mq(lg) {
+                display: none;
+            }
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+
+    .bottom{
+        li{
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+            svg{
+                width: 14px;
+                height: 14px;
+                color: currentcolor;
+                margin-right: 10px;
+            }
+            a{
+                color: #000;
+            }
+        }
+        .category-list > li{
+            opacity: .5;
+        }
+    }
+    
+}
+
+// #####################################
+// ### Content ###
+.text-header{
+    font-size: 1.7rem;
+    font-weight: normal;
+}
+.nav-task{
+    border-color: $border-color;
+    font-size: .8rem;
+    ul{
+        margin: 0;
+        li{
+            border-color: $border-color !important;
+            &:hover{
+                cursor: pointer;
+                color: #458354;
+                border-color: #458354!important;
+            }
+            &.active{
+                color: #458354;
+                border-color: #458354!important;
+            }
+        }
+    }
+}
+.content-tasks{
+    font-size: .9rem;
+    @include mq(md) {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 55%;
+    }
+}
+.task{
+    &-label{
+        label{
+            cursor: pointer;
+            input{
+                cursor: inherit;
+            }
+        }
+    }
+    &:hover{
+        transform: scaleX(1.02);
+    }
+    &-tag{
+        background-color: #f7f8fc;
+        border-radius: .5rem;
+    }
+}
+
+// ##################################
+// ### Right Side ###
+.right-user{
+    @include mq(md) {
+        display: block!important;
+    }
+    svg{
+        cursor: pointer;
+        opacity: .7;
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+.right-text-header{
+    font-size: 1.3rem;
+    font-weight: normal;
+    @include mq(md) {
+        margin-bottom: 1.5rem;
+    }
+}
+.right-content{
+    @include mq(md) {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 65%;
+    }
+}
+.box-members img{
+    height: 32px;
+    width: 32px;
+}
